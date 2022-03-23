@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1612441781 source:c:\users\gouse\onedrive\desktop\c and c++\new_programming\arrays\arrayspro.c
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+
+1613022425 source:c:\users\gouse\onedrive\desktop\c and c++\new_programming\arrays\matrix_add.c
+	<stdio.h>
+
+1613022358 source:c:\users\gouse\onedrive\desktop\c and c++\new_programming\arrays\prime_numbers.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1609836614 source:c:\users\gouse\onedrive\desktop\c and c++\new_programming\arrays\whetherprogrma.c
+	<stdio.h>
+
+1613022425 source:c:\users\gouse\desktop\c and c++\new_programming\arrays\matrix_add.c
+	<stdio.h>
+
+1609836614 source:c:\users\gouse\desktop\c and c++\new_programming\arrays\whetherprogrma.c
+	<stdio.h>
+
+1613041196 source:c:\users\gouse\desktop\c and c++\new_programming\arrays\prime_numbers.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<stdio.h>
+	<stdio.h>
+
+1618414825 source:c:\users\gouse\desktop\c and c++\new_programming\arrays\arrayspro.c
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+	<stdio.h>
+
