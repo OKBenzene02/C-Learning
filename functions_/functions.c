@@ -337,6 +337,96 @@ int main()
     return 0;
 }
 */
+///--- sum of n natural numbers ---///
+/*
+#include<stdio.h>
+
+int SumNat(int n)
+{
+    if (n == 0)
+        return 0;
+    else
+    {
+        return n + SumNat(n - 1);
+    }
+}
+
+int main()
+{
+    int num = 20;
+    int p = SumNat(num);
+    printf("Sum is %d\n", p);
+    return 0;
+}
+*/
+/*
+#include<stdio.h>
+
+int fibbo(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return n;
+    }
+    else
+    {
+        return fibbo(n - 1) + fibbo(n - 2);
+    }
+}
+
+int main()
+{
+    int n = 12;
+    printf("Fibonacci number of %d is %d", n, fibbo(n));
+    return 0;
+}
+*/
+/*
+#include<stdio.h>
+
+int fact(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return n * fact(n - 1);
+    }
+}
+
+int main()
+{
+    int n = 5;
+    printf("%d! = %d", n, fact(n));
+    return 0;
+}
+*/
+/*
+#include<stdio.h>
+
+int Posittion(int arr[], int ele, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if(arr[i] == ele)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int main()
+{
+    int arr[] = {12, 23, 34, 45, 56, 67, 78, 89}, n = sizeof(arr)/sizeof(arr[0]);
+    int res = Posittion(arr, 67, n);
+    (res == -1) ? printf("element not found.\n") : printf("element found at position %d.\n", res);
+    return 0;
+}
+*/
 ///----Towers of Hanoi----///
 /*
 #include<stdio.h>
@@ -550,17 +640,17 @@ int main()
 
 void insertionSort(int arr[], int n)
 {
-    int temp, p, q;
-    for (p = 1; p < n; p++)
+    int value, i, hole;
+    for (i = 1; i < n - 1; i++)
     {
-        temp = arr[p];
-        q = p - 1;
-        while(q >= 0 && arr[q] > temp)
+        value = arr[i];
+        hole = i;
+        while(hole > 0 && arr[hole - 1] > value)
         {
-            arr[q + 1] = arr[q];
-            q = q - 1;
+            arr[hole] = arr[hole - 1];
+            hole = hole - 1;
         }
-        arr[q + 1] = temp;
+        arr[hole] = value;
     }
 }
 
@@ -578,94 +668,87 @@ int main()
 }
 */
 
-///--- sum of n natural numbers ---///
-/*
+///--- Merge sort ---///
 #include<stdio.h>
+#include<stdlib.h>
+//int c[100];
 
-int SumNat(int n)
+void merge(int arr[],int low, int mid, int high)
 {
-    if (n == 0)
-        return 0;
-    else
+    int i, j, k;
+    int leftSize = mid - low + 1, rightSize = high - mid;
+    int L[leftSize], R[rightSize];
+
+    for (i = 0; i < leftSize; i++)
     {
-        return n + SumNat(n - 1);
+        L[i] = arr[low + i];
+    }
+
+    for (j = 0; j < rightSize; j++)
+    {
+        R[j] = arr[mid + 1 + j];
+    }
+
+    i=0;
+    j=0;
+    k=low;
+
+    while (i < leftSize && j < rightSize)
+    {
+        if (L[i] <= R[j])
+        {
+            arr[k] = L[i];
+            i++;
+        }
+        else
+        {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < leftSize)
+    {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while (j < rightSize)
+    {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(int arr[], int low, int high)
+{
+    int mid;
+    if (low < high)
+    {
+        mid = low + (high - low) / 2;
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
+        merge(arr, low, mid, high);
     }
 }
 
 int main()
 {
-    int num = 20;
-    int p = SumNat(num);
-    printf("Sum is %d\n", p);
-    return 0;
-}
-*/
-/*
-#include<stdio.h>
-
-int fibbo(int n)
-{
-    if (n == 0 || n == 1)
-    {
-        return n;
+    int arr[10] = {56, 34, 45, 11, 8, 23, 233, 22, 1, 2}, n = sizeof(arr)/sizeof(arr[0]);
+    printf("Unsorted array: ");
+    for (int i = 0; i < n; i++){
+        printf(" %d ", arr[i]);
     }
-    else
-    {
-        return fibbo(n - 1) + fibbo(n - 2);
-    }
-}
 
-int main()
-{
-    int n = 12;
-    printf("Fibonacci number of %d is %d", n, fibbo(n));
-    return 0;
-}
-*/
-/*
-#include<stdio.h>
+    mergeSort(arr, 0, n - 1);
 
-int fact(int n)
-{
-    if (n == 0 || n == 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return n * fact(n - 1);
-    }
-}
-
-int main()
-{
-    int n = 5;
-    printf("%d! = %d", n, fact(n));
-    return 0;
-}
-*/
-/*
-#include<stdio.h>
-
-int Posittion(int arr[], int ele, int n)
-{
+    printf("\nSorted array: ");
     for (int i = 0; i < n; i++)
     {
-        if(arr[i] == ele)
-        {
-            return i;
-        }
+        printf(" %d ", arr[i]);
     }
-
-    return -1;
-}
-
-int main()
-{
-    int arr[] = {12, 23, 34, 45, 56, 67, 78, 89}, n = sizeof(arr)/sizeof(arr[0]);
-    int res = Posittion(arr, 67, n);
-    (res == -1) ? printf("element not found.\n") : printf("element found at position %d.\n", res);
     return 0;
 }
-*/
-
