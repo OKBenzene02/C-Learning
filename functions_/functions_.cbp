@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Sorting Algos.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="TICTACmyversion.c">
 			<Option compilerVar="CC" />
 		</Unit>
